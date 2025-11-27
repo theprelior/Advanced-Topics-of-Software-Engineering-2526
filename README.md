@@ -36,11 +36,13 @@ Before starting the tutorial, ensure you have the following installed on your ma
 
 ## Tutorial Steps
 
+### 0. Fork the Repository
+
 ### 1. Clone the Repository
 
 Begin by cloning the tutorial repository to your local machine.
 
-<pre class="!overflow-visible"><div class="dark bg-gray-950 contain-inline-size rounded-md border-[0.5px] border-token-border-medium relative"><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-bash">gh repo clone tum-seai/Advanced-Topics-of-Software-Engineering
+<pre class="!overflow-visible"><div class="dark bg-gray-950 contain-inline-size rounded-md border-[0.5px] border-token-border-medium relative"><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-bash">gh repo clone your-username/Advanced-Topics-of-Software-Engineering
 cd Advanced-Topics-of-Software-Engineering
 </code></div></div></pre>
 
