@@ -100,18 +100,14 @@ class TestCalculator:
         calc = Calculator()
         calc.add(1, 1)       # Stack: [2]
         calc.multiply(2, 3)  # Stack: [2, 6]
-        
         # Check the last result
         assert calc.get_last_result() == 6
-        
         # Get the entire stack
         assert calc.get_stack() == [2, 6]
-        
         # Clear the stack
         calc.clear_stack()
         assert calc.get_stack() == []
         assert calc.get_last_result() is None
-        
         # New operation after clearing
         calc.add(2, 3)
         assert calc.get_last_result() == 5
