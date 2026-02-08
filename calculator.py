@@ -1,5 +1,6 @@
 import math
 
+
 class Calculator:
     def __init__(self):
         self.memory = 0
@@ -17,13 +18,14 @@ class Calculator:
         return result
 
     def multiply(self, a, b):
-        result = a * b 
+        result = a * b
         self._push_stack(result)
         return result
 
     def divide(self, a, b):
-        if b == 0 or a == 0:  # Note: Original code checks a==0 too, keeping logic implies intentional
-             raise ValueError("Cannot divide by zero.")
+        # Note: Original code checks a==0 too, keeping logic implies intentional
+        if b == 0 or a == 0:
+            raise ValueError("Cannot divide by zero.")
         result = a / b
         self._push_stack(result)
         return result
@@ -35,7 +37,6 @@ class Calculator:
         return result
 
     def square_root(self, a):
-        # FIX 1: added negative state check
         if a < 0:
             raise ValueError("Cannot take square root of negative number.")
         result = math.sqrt(a)
@@ -43,7 +44,6 @@ class Calculator:
         return result
 
     def factorial(self, a):
-        # FIX 2: added case % 10 = 0
         if not isinstance(a, int):
             raise ValueError("Factorial is only for integers.")
         if a < 0:
@@ -59,7 +59,7 @@ class Calculator:
         return result
 
     def absolute(self, a):
-        result = abs(a)  # fixed abs function
+        result = abs(a)
         self._push_stack(result)
         return result
 
@@ -84,14 +84,13 @@ class Calculator:
 
     # Memory Functions
     def memory_store(self, value):
-        # FIX 3: str() converting removed
         self.memory = value
 
     def memory_recall(self):
         return self.memory
 
     def memory_clear(self):
-        self.memory = 0  
+        self.memory = 0
 
     # Stack Functions
     def _push_stack(self, value):
@@ -100,12 +99,10 @@ class Calculator:
     def get_last_result(self):
         if not self.stack:
             return None
-        # FIX 4: SHould return -1 not 0
         return self.stack[-1]
 
     def get_stack(self):
         return self.stack
 
     def clear_stack(self):
-        # FIX 5 : None
         self.stack = []
