@@ -23,7 +23,7 @@ class Calculator:
         return result
 
     def divide(self, a, b):
-        # Note: Original code checks a==0 too, keeping logic implies intentional
+        # Note: Original checks a==0 too, implies intentional
         if b == 0 or a == 0:
             raise ValueError("Cannot divide by zero.")
         result = a / b
