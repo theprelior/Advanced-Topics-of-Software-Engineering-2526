@@ -25,6 +25,7 @@ class TestCalculator:
         calc = Calculator()
         with pytest.raises(ValueError, match="Cannot divide by zero"):
             calc.divide(10, 0)
+        # Also test the specific 'a==0' check in your code
         with pytest.raises(ValueError):
             calc.divide(0, 5)
 
@@ -50,8 +51,10 @@ class TestCalculator:
 
     def test_factorial_errors(self):
         calc = Calculator()
+        # Error for decimal numbers
         with pytest.raises(ValueError, match="only for integers"):
             calc.factorial(4.5)
+        # Error for negative numbers
         with pytest.raises(ValueError, match="non-negative"):
             calc.factorial(-5)
 
@@ -81,6 +84,7 @@ class TestCalculator:
 
     def test_gcd(self):
         calc = Calculator()
+        # GCD of 12 and 15 is 3
         assert calc.gcd(12, 15) == 3
         assert calc.gcd(54, 24) == 6
 
@@ -94,12 +98,20 @@ class TestCalculator:
 
     def test_get_last_result_and_clear_stack(self):
         calc = Calculator()
-        calc.add(1, 1)      # Stack: [2]
-        calc.multiply(2, 3) # Stack: [2, 6]
+        calc.add(1, 1)       # Stack: [2]
+        calc.multiply(2, 3)  # Stack: [2, 6]
+        
+        # Check the last result
         assert calc.get_last_result() == 6
+        
+        # Get the entire stack
         assert calc.get_stack() == [2, 6]
+        
+        # Clear the stack
         calc.clear_stack()
         assert calc.get_stack() == []
         assert calc.get_last_result() is None
+        
+        # New operation after clearing
         calc.add(2, 3)
         assert calc.get_last_result() == 5
